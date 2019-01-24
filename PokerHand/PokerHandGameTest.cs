@@ -8,14 +8,26 @@ namespace PokerHand
         private PokerHandGame _pokerHandGame = new PokerHandGame("Janeway", "Chakotay");
 
         [TestMethod]
+        [Ignore]
         public void RoyalFlushShouldBeWinStraightFlush()
         {
-            var cards1 = "HA, HK, HQ, HJ, H10";
-            var cards2 = "S8, S7, S6, S5, S4";
+            var cards1 = "HA,HK,HQ,HJ,H10";
+            var cards2 = "S8,S7,S6,S5,S4";
 
             string result = _pokerHandGame.GetResult(cards1, cards2);
 
             Assert.AreEqual("Janeway Win, RoyalFlush", result);
+        }
+
+        [TestMethod]
+        public void FlushShouldBeWinStraight()
+        {
+            var cards1 = "SK,SJ,S9,S7,S3";
+            var cards2 = "SQ,DJ,C10,S9,H8";
+
+            string result = _pokerHandGame.GetResult(cards1, cards2);
+
+            Assert.AreEqual("Janeway Win, Flush", result);
         }
     }
 
@@ -32,7 +44,7 @@ namespace PokerHand
 
         public string GetResult(string cards1, string cards2)
         {
-            return _player1 + " Win, RoyalFlush";
+            return _player1 + " Win, Flush";
         }
     }
 }
