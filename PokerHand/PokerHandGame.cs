@@ -16,7 +16,10 @@ namespace PokerHand
         public string GetResult(string cardsInput1, string cardsInput2)
         {
             CardConverterTool convert = new CardConverterTool();
-            List<Card> cards1 = convert.ConvertStringToCards(cardsInput1);
+            List<Card> cards1 = convert.ConvertString(cardsInput1);
+
+            var check = new CheckCardTypeTool();
+            check.Analysis(cards1);
 
             return _player1 + " Win, Flush";
         }

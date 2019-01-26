@@ -5,11 +5,12 @@ namespace PokerHand
     [TestClass]
     public class CardConverterToolTest
     {
+        private readonly CardConverterTool _cardConverterTool = new CardConverterTool();
+
         [TestMethod]
         public void NormalCase()
         {
-            var convert = new CardConverterTool();
-            var cards = convert.ConvertStringToCards("H2,H3,H4,H5,H6");
+            var cards = _cardConverterTool.ConvertString("H2,H3,H4,H5,H6");
 
             Assert.AreEqual(5, cards.Count);
             CardShouldBe(CardSuit.Heart, 2, cards[0]);
@@ -22,8 +23,7 @@ namespace PokerHand
         [TestMethod]
         public void AllSuit()
         {
-            var convert = new CardConverterTool();
-            var cards = convert.ConvertStringToCards("S2,H3,D4,C5,S6");
+            var cards = _cardConverterTool.ConvertString("S2,H3,D4,C5,S6");
 
             Assert.AreEqual(5, cards.Count);
             CardShouldBe(CardSuit.Spade, 2, cards[0]);
@@ -36,8 +36,7 @@ namespace PokerHand
         [TestMethod]
         public void SpecialPoint()
         {
-            var convert = new CardConverterTool();
-            var cards = convert.ConvertStringToCards("H10,HJ,HQ,HK,HA");
+            var cards = _cardConverterTool.ConvertString("H10,HJ,HQ,HK,HA");
 
             Assert.AreEqual(5, cards.Count);
             CardShouldBe(CardSuit.Heart, 10, cards[0]);

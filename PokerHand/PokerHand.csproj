@@ -52,6 +52,9 @@
     <Compile Include="CardConverterTool.cs" />
     <Compile Include="CardConverterToolTest.cs" />
     <Compile Include="CardSuit.cs" />
+    <Compile Include="CardType.cs" />
+    <Compile Include="CheckCardTypeTool.cs" />
+    <Compile Include="CheckCardTypeToolTest.cs" />
     <Compile Include="PokerHandGame.cs" />
     <Compile Include="PokerHandGameTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

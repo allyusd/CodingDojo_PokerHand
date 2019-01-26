@@ -22,7 +22,7 @@ namespace PokerHand
         };
 
 
-        public List<Card> ConvertStringToCards(string cardsInput)
+        public List<Card> ConvertString(string cardsInput)
         {
             var cards = new List<Card>();
 
