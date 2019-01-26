@@ -19,6 +19,20 @@ namespace PokerHand
             CardShouldBe(CardSuit.Heart, 6, cards[4]);
         }
 
+        [TestMethod]
+        public void AllSuit()
+        {
+            var convert = new CardConverterTool();
+            var cards = convert.ConvertStringToCards("S2,H3,D4,C5,S6");
+
+            Assert.AreEqual(5, cards.Count);
+            CardShouldBe(CardSuit.Spade, 2, cards[0]);
+            CardShouldBe(CardSuit.Heart, 3, cards[1]);
+            CardShouldBe(CardSuit.Diamond, 4, cards[2]);
+            CardShouldBe(CardSuit.Club, 5, cards[3]);
+            CardShouldBe(CardSuit.Spade, 6, cards[4]);
+        }
+
         private static void CardShouldBe(CardSuit suit, int point, Card card)
         {
             Assert.AreEqual(suit, card.suit);

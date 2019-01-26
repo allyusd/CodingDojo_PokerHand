@@ -7,7 +7,10 @@ namespace PokerHand
     {
         private readonly Dictionary<string, CardSuit> _suitLookup = new Dictionary<string, CardSuit>()
         {
-            {"H", CardSuit.Heart}
+            {"S", CardSuit.Spade},
+            {"H", CardSuit.Heart},
+            {"D", CardSuit.Diamond},
+            {"C", CardSuit.Club}
         };
 
         public List<Card> ConvertStringToCards(string cardsInput)
