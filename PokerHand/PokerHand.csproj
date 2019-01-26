@@ -48,6 +48,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Card.cs" />
+    <Compile Include="CardConverterTool.cs" />
+    <Compile Include="CardConverterToolTest.cs" />
+    <Compile Include="CardSuit.cs" />
+    <Compile Include="PokerHandGame.cs" />
     <Compile Include="PokerHandGameTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
