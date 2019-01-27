@@ -48,6 +48,12 @@ namespace PokerHand
                 return;
             }
 
+            if (HavePair(cards) == 2)
+            {
+                CardType = CardType.TwoPair;
+                return;
+            }
+
             CardType = CardType.HighCard;
         }
 
