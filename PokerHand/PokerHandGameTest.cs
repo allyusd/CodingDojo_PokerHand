@@ -20,7 +20,6 @@ namespace PokerHand
         }
 
         [TestMethod]
-        [Ignore]
         public void FlushShouldBeWinStraight()
         {
             var cards1 = "SK,SJ,S9,S7,S3";

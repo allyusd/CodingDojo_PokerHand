@@ -17,11 +17,16 @@ namespace PokerHand
         {
             CardConverterTool convert = new CardConverterTool();
             List<Card> cards1 = convert.ConvertString(cardsInput1);
+            var check1 = new CheckCardTypeTool();
+            check1.Analysis(cards1);
 
-            var check = new CheckCardTypeTool();
-            check.Analysis(cards1);
+            List<Card> cards2 = convert.ConvertString(cardsInput2);
+            var check2 = new CheckCardTypeTool();
+            check2.Analysis(cards2);
 
-            return _player1 + " Win, Flush";
+            var winPlayer = check1.CardType < check2.CardType ? _player1 : _player2;
+
+            return winPlayer + " Win, Flush";
         }
     }
 }
