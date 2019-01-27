@@ -37,6 +37,13 @@ namespace PokerHand
         }
 
         [TestMethod]
+        public void CheckFullHouse()
+        {
+            _checkTool.Analysis(_converter.ConvertString("S2,H3,D3,C2,S2"));
+            Assert.AreEqual(CardType.FullHouse, _checkTool.CardType);
+        }
+
+        [TestMethod]
         public void CheckThreeOfKind()
         {
             _checkTool.Analysis(_converter.ConvertString("S2,H3,D4,C2,S2"));

@@ -30,6 +30,12 @@ namespace PokerHand
                 return;
             }
 
+            if (IsThreeOfKind(cards) && HavePair(cards) == 1)
+            {
+                CardType = CardType.FullHouse;
+                return;
+            }
+
             if (IsFlush(cards))
             {
                 CardType = CardType.Flush;
