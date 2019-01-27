@@ -21,5 +21,12 @@ namespace PokerHand
             _checkTool.Analysis(_converter.ConvertString("S2,H3,D4,C5,S6"));
             Assert.AreEqual(CardType.Straight, _checkTool.CardType);
         }
+
+        [TestMethod]
+        public void CheckSpecialStraight()
+        {
+            _checkTool.Analysis(_converter.ConvertString("SA,H2,D3,C4,S5"));
+            Assert.AreEqual(CardType.Straight, _checkTool.CardType);
+        }
     }
 }
