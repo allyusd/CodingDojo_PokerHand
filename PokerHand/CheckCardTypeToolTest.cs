@@ -70,5 +70,18 @@ namespace PokerHand
             _checkTool.Analysis(_converter.ConvertString("S2,H3,D4,C5,S7"));
             Assert.AreEqual(CardType.HighCard, _checkTool.CardType);
         }
+
+        [TestMethod]
+        public void CheckStraightFlushMaxPoints()
+        {
+            _checkTool.Analysis(_converter.ConvertString("S5,S4,S6,S8,S7"));
+            Assert.AreEqual(CardType.StraightFlush, _checkTool.CardType);
+            Assert.AreEqual(5, _checkTool.MaxPoints.Count);
+            Assert.AreEqual(8, _checkTool.MaxPoints[0]);
+            Assert.AreEqual(7, _checkTool.MaxPoints[1]);
+            Assert.AreEqual(6, _checkTool.MaxPoints[2]);
+            Assert.AreEqual(5, _checkTool.MaxPoints[3]);
+            Assert.AreEqual(4, _checkTool.MaxPoints[4]);
+        }
     }
 }

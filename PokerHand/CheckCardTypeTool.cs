@@ -21,6 +21,12 @@ namespace PokerHand
             if (IsStraight(cards) && IsFlush(cards))
             {
                 CardType = CardType.StraightFlush;
+
+                MaxPoints = cards
+                    .OrderByDescending(c => c.point)
+                    .Select(c => c.point)
+                    .ToList();
+
                 return;
             }
 
@@ -112,5 +118,7 @@ namespace PokerHand
         }
 
         public CardType CardType { get; private set; }
+
+        public List<int> MaxPoints { get; private set; }
     }
 }
