@@ -4,8 +4,8 @@ namespace PokerHand
 {
     public class PokerHandGame
     {
-        private string _player1;
-        private string _player2;
+        private readonly string _player1;
+        private readonly string _player2;
 
         public PokerHandGame(string player1, string player2)
         {
@@ -25,8 +25,9 @@ namespace PokerHand
             check2.Analysis(cards2);
 
             var winPlayer = check1.CardType < check2.CardType ? _player1 : _player2;
+            var winCardType = check1.CardType < check2.CardType ? check1.CardType.ToString() : check2.CardType.ToString();
 
-            return winPlayer + " Win, Flush";
+            return winPlayer + " Win, " + winCardType;
         }
     }
 }
