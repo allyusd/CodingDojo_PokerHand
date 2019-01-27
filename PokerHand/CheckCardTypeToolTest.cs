@@ -63,5 +63,12 @@ namespace PokerHand
             _checkTool.Analysis(_converter.ConvertString("S2,H3,D4,C5,S2"));
             Assert.AreEqual(CardType.OnePair, _checkTool.CardType);
         }
+
+        [TestMethod]
+        public void CheckHighCard()
+        {
+            _checkTool.Analysis(_converter.ConvertString("S2,H3,D4,C5,S7"));
+            Assert.AreEqual(CardType.HighCard, _checkTool.CardType);
+        }
     }
 }
