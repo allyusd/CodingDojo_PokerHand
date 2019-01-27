@@ -42,6 +42,12 @@ namespace PokerHand
                 return;
             }
 
+            if (IsThreeOfKind(cards))
+            {
+                CardType = CardType.ThreeOfAKind;
+                return;
+            }
+
             CardType = CardType.HighCard;
         }
 

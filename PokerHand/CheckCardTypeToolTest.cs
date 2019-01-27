@@ -35,5 +35,12 @@ namespace PokerHand
             _checkTool.Analysis(_converter.ConvertString("S2,H3,D2,C2,S2"));
             Assert.AreEqual(CardType.FourOfAKind, _checkTool.CardType);
         }
+
+        [TestMethod]
+        public void CheckThreeOfKind()
+        {
+            _checkTool.Analysis(_converter.ConvertString("S2,H3,D4,C2,S2"));
+            Assert.AreEqual(CardType.ThreeOfAKind, _checkTool.CardType);
+        }
     }
 }
