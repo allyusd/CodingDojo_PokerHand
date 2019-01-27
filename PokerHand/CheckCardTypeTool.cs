@@ -24,19 +24,40 @@ namespace PokerHand
                 return;
             }
 
+            if (IsFourOfKind(cards))
+            {
+                CardType = CardType.FourOfAKind;
+                return;
+            }
+
             if (IsFlush(cards))
             {
                 CardType = CardType.Flush;
                 return;
             }
 
-            if (IsStraight(cards) || IsSpecialStraight(cards))
+            if (IsStraight(cards))
             {
                 CardType = CardType.Straight;
                 return;
             }
 
             CardType = CardType.HighCard;
+        }
+
+        private static bool IsFourOfKind(List<Card> cards)
+        {
+            return cards.GroupBy(c => c.point).Any(c => c.Count() == 4);
+        }
+
+        private static bool IsThreeOfKind(List<Card> cards)
+        {
+            return cards.GroupBy(c => c.point).Any(c => c.Count() == 3);
+        }
+
+        private static int HavePair(List<Card> cards)
+        {
+            return cards.GroupBy(c => c.point).Count(c => c.Count() == 2);
         }
 
         private static bool IsSpecialStraight(List<Card> cards)
@@ -55,8 +76,10 @@ namespace PokerHand
 
         private static bool IsStraight(List<Card> cards)
         {
-            return (cards.GroupBy(c => c.point).Count() == 5)
+            var isNormalStraight = (cards.GroupBy(c => c.point).Count() == 5)
                 && (cards.Max(c => c.point) - cards.Min(c => c.point) == 4);
+
+            return isNormalStraight || IsSpecialStraight(cards);
         }
 
         private static bool IsFlush(List<Card> cards)
