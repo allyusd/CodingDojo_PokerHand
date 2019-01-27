@@ -8,7 +8,6 @@ namespace PokerHand
         private PokerHandGame _pokerHandGame = new PokerHandGame("Janeway", "Chakotay");
 
         [TestMethod]
-        [Ignore]
         public void RoyalFlushShouldBeWinStraightFlush()
         {
             var cards1 = "HA,HK,HQ,HJ,H10";

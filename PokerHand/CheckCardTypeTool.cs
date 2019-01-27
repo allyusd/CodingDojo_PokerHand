@@ -7,6 +7,23 @@ namespace PokerHand
     {
         public void Analysis(List<Card> cards)
         {
+            if (CardsHasOncePointCard(cards, 10)
+                && CardsHasOncePointCard(cards, 11)
+                && CardsHasOncePointCard(cards, 12)
+                && CardsHasOncePointCard(cards, 13)
+                && CardsHasOncePointCard(cards, 14)
+                && IsFlush(cards))
+            {
+                CardType = CardType.RoyalFlush;
+                return;
+            }
+
+            if (IsStraight(cards) && IsFlush(cards))
+            {
+                CardType = CardType.StraightFlush;
+                return;
+            }
+
             if (IsFlush(cards))
             {
                 CardType = CardType.Flush;
