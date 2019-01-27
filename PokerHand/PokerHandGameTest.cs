@@ -105,5 +105,27 @@ namespace PokerHand
 
             Assert.AreEqual("Janeway Win, OnePair", result);
         }
+
+        [TestMethod]
+        public void SameRoyalFlushShouldBeDeuce()
+        {
+            var cards1 = "HA,HK,HQ,HJ,H10";
+            var cards2 = "SA,SK,SQ,SJ,S10";
+
+            string result = _pokerHandGame.GetResult(cards1, cards2);
+
+            Assert.AreEqual("Deuce, RoyalFlush", result);
+        }
+
+        [TestMethod]
+        public void SameStraightFlushShouldBeHighPointWin()
+        {
+            var cards1 = "S8,S7,S6,S5,S4";
+            var cards2 = "S8,S9,S10,SJ,SQ";
+
+            string result = _pokerHandGame.GetResult(cards1, cards2);
+
+            Assert.AreEqual("Chakotay Win, StraightFlush, Q", result);
+        }
     }
 }

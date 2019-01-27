@@ -24,10 +24,21 @@ namespace PokerHand
             var check2 = new CheckCardTypeTool();
             check2.Analysis(cards2);
 
-            var winPlayer = check1.CardType < check2.CardType ? _player1 : _player2;
-            var winCardType = check1.CardType < check2.CardType ? check1.CardType.ToString() : check2.CardType.ToString();
+            string winState;
+            string winCardType;
+            if (check1.CardType == check2.CardType)
+            {
+                winState = "Deuce";
+                winCardType = check1.CardType.ToString();
+            }
+            else
+            {
+                string winPlayer = check1.CardType < check2.CardType ? _player1 : _player2;
+                winState = winPlayer + " Win";
+                winCardType = check1.CardType < check2.CardType ? check1.CardType.ToString() : check2.CardType.ToString();
+            }
 
-            return winPlayer + " Win, " + winCardType;
+            return winState + ", " + winCardType;
         }
     }
 }
